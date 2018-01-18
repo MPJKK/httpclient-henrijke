@@ -5,12 +5,14 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {HttpTestComponent} from './http-test/http-test.component';
 import {HttpClientModule} from '@angular/common/http';
+import { DogTestComponent } from './dog-test/dog-test.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        HttpTestComponent
+        HttpTestComponent,
+        DogTestComponent
     ],
     imports: [
         BrowserModule,
