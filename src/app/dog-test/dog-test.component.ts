@@ -13,17 +13,45 @@ export class DogTestComponent implements OnInit {
   output = 'temp';
   rodut = 'https://dog.ceo/api/breeds/list';
   rodutList = '';
+  dognumber = -1;
+  goodboys = 0;
+  badboys = 0;
+  breed = 'https://dog.ceo/api/breed';
   constructor(private dog: HttpClient) { }
-
-    getFromApi () {
+    getFromApi (num) {
         interface Myinterface {
             message: string;
         }
         this.dog.get<Myinterface>(this.koira).subscribe(data => {
             this.output = data.message;
+            switch (num) {
+                case 1:
+                  this.goodboys ++;
+                  break;
+                case 2:
+                  this.badboys ++;
+                  break;
+                default:
+                  break;
+            }
+            this.dognumber ++;
         },
             err => {
           console.log('homma ei toimi');
+            });
+    }
+    breedApi(dogbreed) {
+        interface Myinterface {
+            message: string;
+        }
+        console.log(this.breed + dogbreed + '/images/random');
+        console.log('Breed apin parametri on ' + dogbreed);
+        this.dog.get<Myinterface>(this.breed + dogbreed + '/images/random').subscribe(data => {
+                this.output = data.message;
+                this.dognumber ++;
+            },
+            err => {
+                console.log('homma ei toimi');
             });
     }
     getApiList () {
@@ -40,7 +68,7 @@ export class DogTestComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getFromApi();
+        this.getFromApi(0);
         this.getApiList();
     }
 }

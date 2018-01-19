@@ -1,1 +1,35 @@
+<h1> Number of dogs seen {{dognumber}}</h1>
+<br>
+<table>
+  <tr>
+    <th><button (click)="getFromApi(1)">Good boy</button></th>
+    <th><button (click)="getFromApi(2)" >Bad boy</button></th>
+  </tr>
+  <tr>
+    <td>Number of good boys: {{goodboys}}</td>
+    <td>Number of bad boys: {{badboys}}</td>
+  </tr>
+</table>
+<br>
+<button (click)="getFromApi(0)">New doq plz</button>
+<br>
 <img [src]="output" >
+
+<form novalidate >
+  <label>TESTI <input type="text" data-ng-model="test.name"/></label>
+</form>
+<p> list of doges</p>
+<pre>{{rodutList | json}}</pre>
+<!--
+<form novalidate class="simple-form">
+<label>Breeds</label>
+<select for="dogietypes" name="breeds" data-ng-model="breed">
+  <option value="beagle" selected>Beagle</option>
+  <option value="dachshund">Dachshund</option>
+  <option value="corgi" >Corgi</option>
+  <option value="dane">Dane</option>
+</select>
+<br>
+<input type="button" (click)="breedApi(breed)" value="Gimme">
+</form>-->
+
